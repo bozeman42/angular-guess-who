@@ -17,8 +17,9 @@
       <h1>{{guess.nameToGuess}}</h1>
     </div>
     <form>
-      <input ng-model="guess.nameIn" type="text" placeholder="Name">
-      <input ng-model="guess.githubIn" type="text" placeholder="github account name">
+      <input placeholder="not guess." type="text" ng-model="intro">
+      <input ng-model="nameIn" type="text" placeholder="Name">
+      <input ng-model="githubIn" type="text" placeholder="github account name">
       <button ng-click="guess.submitName()">Heeeey</button>
     </form>
     <div ng-show="person.show" class="imgDiv" ng-repeat="person in guess.people">

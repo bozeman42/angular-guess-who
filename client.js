@@ -5,8 +5,8 @@ myApp.controller('GuessWhoController',function(){
   guess.people = [{name: 'Aaron',github:'bozeman42', show: true},{name: "Emi", github: "emimbchen", show: true},{name: "Marta", github: "martajopp", show: true},{name: "Xong", github: "xongxiong", show: true},{name: "Chris Black", github: "christopher-black", show: true}];
 
   guess.submitName = function(){
-    guess.people.push({name: guess.nameIn,github: guess.githubIn});
-    guess.nameIn = '';
+    guess.people.push({name: nameIn,github: githubIn, show: true});
+    nameIn = '';
     guess.githubIn = '';
     console.log(guess.people);
   };
@@ -33,8 +33,8 @@ myApp.controller('GuessWhoController',function(){
       { // if there is a person that is visible
         guess.reset();
       } else {
-        people.forEach(function(person){
-          person.show = true;
+        guess.people.forEach(function(element){
+          element.show = true;
         });
         guess.reset();
       }
