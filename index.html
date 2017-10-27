@@ -14,7 +14,7 @@
 <body ng-app="myApp">
   <div ng-controller="GuessWhoController as guess">
     <div>
-      {{guess.clicked}}
+      <h1>{{guess.nameToGuess}}</h1>
     </div>
     <form>
       <input ng-model="guess.nameIn" type="text" placeholder="Name">

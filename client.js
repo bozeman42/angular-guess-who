@@ -12,11 +12,35 @@ myApp.controller('GuessWhoController',function(){
   };
 
   
-
-  guess.nameToGuess = guess.people[0];
-
+  guess.reset = function(){
+    guess.target = guess.people[randomNumber(0,guess.people.length-1)];
+    while(guess.target.show === false){
+      guess.target = guess.people[randomNumber(0,guess.people.length-1)];
+    }
+    guess.nameToGuess = guess.target.name;
+  };
+  
+  guess.reset();
   guess.clickAPic = function(person){
-    guess.clicked = person.name;
+    guess.clicked = person;
+    if (person.name === guess.target.name){
+      alert("You got it!");
+      person.show = false;
+      if (
+        guess.people.some(function(person){
+        return (person.show === true);
+      }))
+      { // if there is a person that is visible
+        guess.reset();
+      } else {
+        people.forEach(function(person){
+          person.show = true;
+        });
+        guess.reset();
+      }
+    } else {
+      alert('Nope!');
+    }
   };
 });// end GuessWhoController
 
